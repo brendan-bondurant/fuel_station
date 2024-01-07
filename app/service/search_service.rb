@@ -13,6 +13,6 @@ class SearchService
   end
 
   def closest_charger(location)
-    get_url("/api/alt-fuel-stations/v1/nearest?format=json&location=#{location}&fuel_type=ELEC&limit=1")
+    get_url("/api/alt-fuel-stations/v1/nearest?format=json&location=#{location}&limit=1")
   end
 end

@@ -6,7 +6,6 @@ RSpec.describe SearchService do
     it 'returns a Faraday connection object' do
       test_service = SearchService.new
       connection = test_service.conn
-
       expect(connection).to be_a(Faraday::Connection)
       expect(connection.url_prefix.to_s).to eq('https://developer.nrel.gov/')
     end
@@ -20,9 +19,7 @@ RSpec.describe SearchService do
       response_body = { key: 'value' }.to_json
       response = double('response', body: response_body)
       allow(test_service.conn).to receive(:get).with(url).and_return(response)
-
       parsed_response = test_service.get_url(url)
-
       expect(parsed_response).to eq({ key: 'value' })
     end
   end

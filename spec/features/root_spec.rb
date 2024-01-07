@@ -7,8 +7,6 @@ RSpec.describe 'root' do
       select "Griffin Coffee", from: :location 
       click_button 'Find Nearest Station'
       expect(current_path).to eq("/search")
-      require 'pry'; binding.pry
-
       # Then I should see the closest electric fuel station to me.
       #    For that station I should see
       #      - Name
@@ -16,6 +14,13 @@ RSpec.describe 'root' do
       #      - Fuel Type
       #      - Access Times
 
+      expect(page).to have_content("Name")
+      expect(page).to have_content("Address")
+      expect(page).to have_content("Fuel Type")
+      expect(page).to have_content("Access Times")
+      expect(page).to have_content("Distance")
+      expect(page).to have_content("Travel Time")
+save_and_open_page
       #   I should also see:
       #     - the distance of the nearest station (should be 0.1 miles)
       #     - the travel time from Griffin Coffee to that fuel station (should be 1 min)

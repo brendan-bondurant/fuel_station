@@ -1,0 +1,9 @@
+Name: <%= @facade.closest.name %> </br>
+Address: <%= @facade.closest.address %></br>
+Fuel Type: <%= @facade.closest.fuel_type %></br>
+Access Times: <%= @facade.closest.access_times %></br>
+Distance: <%= @facade.directions.distance%></br>
+Travel Time: <%= @facade.directions.time%></br>
+Directions: <% @facade.directions.directions.each do |directions| %>
+<%=  directions %> </br>
+<% end %>
